@@ -1,6 +1,8 @@
 # Connect Heroku Redis
 
 Connect Heroku Redis is a wrapper for [connect-redis](https://github.com/visionmedia/connect-redis) using Heroku Redis to Go.
+
+See: http://devcenter.heroku.com/articles/redistogo      
       
 ## Installation
 
