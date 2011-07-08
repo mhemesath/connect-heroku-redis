@@ -19,7 +19,7 @@ Connect Heroku Redis is a wrapper for [connect-redis](https://github.com/visionm
       connect.cookieParser(),
       // 5 minutes
       connect.session({ store: new HerokuRedisStore, secret: 'keyboard cat' })
-);
+    );
     
 ## License
 
