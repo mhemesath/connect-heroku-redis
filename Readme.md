@@ -15,10 +15,10 @@ Connect Heroku Redis is a wrapper for [connect-redis](https://github.com/visionm
     var connect = require('connect'), 
         HerokuRedisStore = require('connect-heroku-redis')(connect);
 
-connect.createServer(
-  connect.cookieParser(),
-  // 5 minutes
-  connect.session({ store: new HerokuRedisStore, secret: 'keyboard cat' })
+    connect.createServer(
+      connect.cookieParser(),
+      // 5 minutes
+      connect.session({ store: new HerokuRedisStore, secret: 'keyboard cat' })
 );
     
 ## License
