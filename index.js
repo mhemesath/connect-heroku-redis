@@ -6,6 +6,9 @@
 
 var parse = require("url").parse;
 
+var redisToGo = process.env.REDISTOGO_URL ? parse(process.env.REDISTOGO_URL) : false; 
+
+
 /**
  * Return connect heroku redis store
  * @param {int} version
@@ -14,16 +17,25 @@ var parse = require("url").parse;
  */
 module.exports = function(connect) {
   
-  var redisToGoURL = process.env.REDISTOGO_URL ? parse(process.env.REDISTOGO_URL) : false; 
+  var RedisStore = require('connect-redis')(connect);
   
-  return function(options) {
+  function ConnectHerokuRedis(options) {
+    options = options || {};
 
-    if (redisToGoURL) {
+    if (redisToGo) {
       options.host = options.host || redisToGo.hostname;
       options.port = options.port || redisToGo.port;
-      options.pass = options.pass || redisToGo.auth.spli(":")[1];
+      
+      if (!options.pass && redisToGo.auth) {
+        options.pass = options.pass || redisToGo.auth.split(":")[1];
+      }
     }
-
-    return new RedisStore(options);
+    
+    RedisStore.call(this, options);
   }
+  
+  // Inherit from Connect Redis
+  ConnectHerokuRedis.prototype = new RedisStore;
+  
+  return ConnectHerokuRedis;
 }

@@ -9,6 +9,7 @@ Connect Heroku Redis is a wrapper for [connect-redis](https://github.com/visionm
 ## Features
 
   * Detects Heroku Redis to Go url on the environment and defaults it onto the RedisStore options.
+  * Defaults to local store if Heroku Redis to Go environment variable is not detected.
     
 ## Examples
 
