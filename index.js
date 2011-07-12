@@ -6,9 +6,6 @@
 
 var parse = require("url").parse;
 
-var redisToGo = process.env.REDISTOGO_URL ? parse(process.env.REDISTOGO_URL) : false; 
-
-
 /**
  * Return connect heroku redis store
  * @param {int} version
@@ -20,6 +17,8 @@ module.exports = function(connect) {
   var RedisStore = require('connect-redis')(connect);
   
   function ConnectHerokuRedis(options) {
+    var redisToGo = process.env.REDISTOGO_URL ? parse(process.env.REDISTOGO_URL) : false; 
+    
     options = options || {};
 
     if (redisToGo) {
