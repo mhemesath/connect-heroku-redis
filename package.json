@@ -1,7 +1,7 @@
 {
   "name": "connect-heroku-redis",
   "description": "A heroku Redis session store wrapper for connect-redis.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "Mike Hemesath <mike.hemesath@gmail.com>",
   "keywords": ["heroku", "redis", "connect", "express"],
   "main": "index",

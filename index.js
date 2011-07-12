@@ -18,7 +18,7 @@ module.exports = function(connect) {
   
   function ConnectHerokuRedis(options) {
     var redisToGo = process.env.REDISTOGO_URL ? parse(process.env.REDISTOGO_URL) : false; 
-    
+    console.log("redisToGoURL", redisToGo);
     options = options || {};
 
     if (redisToGo) {
@@ -29,7 +29,7 @@ module.exports = function(connect) {
         options.pass = options.pass || redisToGo.auth.split(":")[1];
       }
     }
-    
+    console.log("RedisStore options", options);
     RedisStore.call(this, options);
   }
   
