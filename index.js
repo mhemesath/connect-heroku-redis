@@ -22,7 +22,7 @@ module.exports = function(connect) {
     options = options || {};
 
     if (redisToGo) {
-      options.host = options.host || redisToGo.hostname;
+      options.host = options.host || redisToGo.host;
       options.port = options.port || redisToGo.port;
       
       if (!options.pass && redisToGo.auth) {
