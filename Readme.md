@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/mhemesath/connect-heroku-redis.png)](http://travis-ci.org/mhemesath/connect-heroku-redis)
 # Connect Heroku Redis
 
 Connect Heroku Redis is a wrapper for [connect-redis](https://github.com/visionmedia/connect-redis) using Heroku Redis to Go.
